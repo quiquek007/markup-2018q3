@@ -49,7 +49,7 @@ h1 {
   padding-top: 2px;
   padding-left: 30%;
 }
-.navigation .menu li {
+.navigation .menu > li {
   width: calc(100% / 6);
   text-align: right;
   -webkit-user-select: none;
@@ -57,7 +57,7 @@ h1 {
   -ms-user-select: none;
   user-select: none;
 }
-.navigation .menu li a {
+.navigation .menu > li > a {
   display: inline-flex;
   padding: 35px 5px 33px;
   font-size: 1.6rem;
@@ -68,7 +68,7 @@ h1 {
   border-bottom: 2px solid transparent;
   transition: 0.3s linear color, 0.3s linear border-bottom;
 }
-.navigation .menu li a:hover {
+.navigation .menu > li > a:hover {
   color: #1abc9c;
   border-bottom: 2px solid #fff;
 }
@@ -80,7 +80,7 @@ h1 {
   width: 100%;
   height: 855px;
 }
-.greetings span {
+.greetings > span {
   font-family: "Georgia", "Tahoma", sans-serif;
   font-style: italic;
   font-size: 3.2rem;
@@ -218,7 +218,7 @@ main {
   margin-top: 51px;
   border: 1px solid #cbcbcb;
 }
-.choosing-domain .chooser span {
+.choosing-domain .chooser > span {
   padding: 0 15px;
   font-family: "Lato Regular", "Tahoma", sans-serif;
   font-size: 1.6rem;
@@ -229,10 +229,10 @@ main {
   user-select: none;
   transition: 0.3s linear color;
 }
-.choosing-domain .chooser span:hover {
+.choosing-domain .chooser > span:hover {
   color: #20414a;
 }
-.choosing-domain .chooser input {
+.choosing-domain .chooser > input {
   height: 65%;
   width: 100%;
   padding-left: 18px;
@@ -242,7 +242,7 @@ main {
   border: none;
   border-left: 1px solid #cbcbcb;
 }
-.choosing-domain .chooser select {
+.choosing-domain .chooser > select {
   width: 82px;
   height: 65%;
   padding-left: 10px;
@@ -260,7 +260,7 @@ main {
   -webkit-tap-highlight-color: transparent;
   transition: 0.3s linear all;
 }
-.choosing-domain .chooser select:hover {
+.choosing-domain .chooser > select:hover {
   opacity: 1;
   color: #20414a;
 }
@@ -333,7 +333,7 @@ main {
   overflow: hidden;
   z-index: 50;
 }
-.package-prices .packages-bg img {
+.package-prices .packages-bg > img {
   margin-top: -260px;
 }
 .package-prices .package {
@@ -358,7 +358,7 @@ main {
   width: 30px;
   height: 30px;
 }
-.package-prices .package .image img {
+.package-prices .package .image > img {
   width: 70%;
   height: 70%;
   margin: 15% 15% 15% 0;
@@ -390,19 +390,19 @@ main {
   border-top: 2px solid #cbcbcb;
   border-bottom: 2px solid #cbcbcb;
 }
-.package-prices .package .info p {
+.package-prices .package .info > p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   line-height: 2.4;
 }
-.package-prices .package .info p .service {
+.package-prices .package .info > p .service {
   font-family: "Lato Light", "Tahoma", sans-serif;
   font-size: 1.6rem;
   font-weight: 600;
   color: #cbcbcb;
 }
-.package-prices .package .info p .amount {
+.package-prices .package .info > p .amount {
   font-family: "Lato Semibold", "Tahoma", sans-serif;
   font-size: 1.6rem;
   font-weight: 600;
@@ -413,13 +413,13 @@ main {
   font-family: "Lato Heavy", "Tahoma", sans-serif;
   font-size: 2.6rem;
 }
-.package-prices .package .price sup {
+.package-prices .package .price > sup {
   position: relative;
   bottom: 0.3em;
   font-family: "Lato Heavy", "Tahoma", sans-serif;
   font-size: 0.7em;
 }
-.package-prices .package .price sub {
+.package-prices .package .price > sub {
   position: relative;
   top: 0.15em;
   font-family: "Lato Regular", "Tahoma", sans-serif;
@@ -517,7 +517,7 @@ main {
   -ms-user-select: none;
   user-select: none;
 }
-.about-us .info .title b {
+.about-us .info .title > b {
   font-weight: 900;
 }
 .about-us .info .description {
@@ -580,7 +580,7 @@ main {
   width: 100%;
   margin-top: 12px;
 }
-.about-us .persons .person .socials a:last-child {
+.about-us .persons .person .socials > a:last-child {
   transform: rotate(-90deg);
 }
 .about-us .persons .person .socials svg {
@@ -592,44 +592,84 @@ main {
 .about-us .persons .person .socials svg:hover {
   fill: #1c8dbc;
 }
-.slider .slide {
-  min-height: 190px;
-  padding-bottom: 20px;
+.slides {
+  position: relative;
+  height: 190px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: black;
 }
-.slider .slide > img {
+.slides .slide {
   position: absolute;
-  bottom: 0;
-  z-index: -15;
   left: 0;
+  top: 0;
   width: 100%;
-  min-height: 200px;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
 }
-.slider .slide .text {
-  margin: 45px auto 10px;
-  width: 60%;
+.slides .slide > img {
+  position: absolute;
+  bottom: -176px;
+  left: 0;
+  z-index: -1;
+}
+.slides .slide .text {
   max-height: 60px;
+  margin: 45px 0 15px;
+  padding: 0 20%;
   font-family: "Lato Light", "Tahoma", sans-serif;
   font-size: 2rem;
-  text-overflow: ellipsis;
+  color: #fff;
   text-align: center;
-  color: white;
-  overflow: hidden;
   line-height: 30px;
+  overflow: hidden;
 }
-.slider .slide .name {
-  display: block;
-  width: 51.2%;
-  margin-top: 16px;
-  padding-right: 12px;
+.slides .slide .name {
+  float: right;
+  margin-right: 49%;
+  padding-right: 10px;
   font-family: "Lato Bold", "Tahoma", sans-serif;
   font-size: 2rem;
-  color: #fff;
-  text-align: right;
-  border-right: 1px solid white;
+  line-height: 20px;
 }
-.slider .slide .name a {
+.slides .slide .name > a {
   text-decoration: none;
   color: #fff;
+}
+.slides .controls {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  bottom: 53px;
+  left: 51.1%;
+  z-index: 3;
+  height: 15px;
+  padding-left: 7px;
+  padding-top: 4px;
+  border-left: 1px solid #fff;
+}
+.slides .controls .btn {
+  display: block;
+  height: 8px;
+  width: 8px;
+  margin: 0 6px;
+  background: #2c2c2b;
+  border: 1px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.slides .controls .active {
+  background: #fff;
+}
+.slides .showing {
+  opacity: 1;
+  z-index: 2;
 }
 .services {
   display: flex;
@@ -836,9 +876,6 @@ footer .information .contacts > p {
   color: #686868;
 }
 @media only screen and (min-width: 1280px) {
-  .slider .slide > img {
-    bottom: -178px;
-  }
   footer .navigation .logo {
     margin-top: 0;
     padding-top: 25px;
@@ -851,9 +888,6 @@ footer .information .contacts > p {
   }
   .about-us .persons .person {
     margin-left: 5px;
-  }
-  .slider .slide > img {
-    bottom: -125px;
   }
   footer .navigation .logo {
     margin-top: 0;
@@ -1025,14 +1059,6 @@ footer .information .contacts > p {
   .about-us .persons .person .socials svg {
     height: 15px;
     width: 15px;
-  }
-  .slider .slide > img {
-    bottom: 0;
-  }
-  .slider .slide > .text {
-    width: 100%;
-    min-height: 60px;
-    padding: 0 15px;
   }
   .services {
     flex-wrap: wrap;

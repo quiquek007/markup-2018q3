@@ -9,9 +9,6 @@
   <link rel="stylesheet" href="fonts/lato.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/jquery.bxslider.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="js/jquery.bxslider.js"></script>
 </head>
 <body>
 
@@ -246,14 +243,14 @@
     </div>
   </article>
 
-  <section class="slider">
-    <div class="slide">
+  <section class="slides" id="slides">
+    <div class="slide showing">
       <img src="img/comments-bg.jpg" alt="comments image">
       <p class="text">
         “Suspendisse tempor turpis odio, sit amet cursus leo consequat non. Maecenas lacinia faucibus enimqui
         interdum dolor pulvinar vitae.”
       </p>
-      <span class="name"><a href="">John Doe</a></span>
+      <span class="name"><a href="">Jonny Doe</a></span>
     </div>
     <div class="slide">
       <img src="img/comments-bg.jpg" alt="comments image">
@@ -261,7 +258,7 @@
         “Suspendisse tempor turpis odio, sit amet cursus leo consequat non. Maecenas lacinia faucibus enimqui
         interdum dolor pulvinar vitae.”
       </p>
-      <span class="name"><a href="">Jonny Doe</a></span>
+      <span class="name"><a href="">John Doe</a></span>
     </div>
     <div class="slide">
       <img src="img/comments-bg.jpg" alt="comments image">
@@ -370,32 +367,7 @@
   </div>
 </footer>
 
-<script>
-
-  let pull = $('#pull');
-  let menu = $('header nav ul');
-  $(function () {
-    let menuHeight = menu.height();
-    $(pull).on('click', function (e) {
-      e.preventDefault();
-      menu.slideToggle();
-    });
-  });
-
-  $(window).resize(function(){
-    let w = $(window).width();
-    if(w > 768 && menu.is(':hidden')) {
-      menu.removeAttr('style');
-    }
-  });
-
-  $(document).ready(function () {
-    $('.slider').bxSlider({
-      controls: false,
-      preloadImages: 'all'
-    });
-  });
-</script>
+<script src="js/app.js"></script>
 
 </body>
 </html>

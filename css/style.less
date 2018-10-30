@@ -75,12 +75,12 @@ h1 {
     padding-top: 2px;
     padding-left: 30%;
 
-    li {
+    > li {
       width: calc(~'100% / 6');
       text-align: right;
       .user-select(none);
 
-      a {
+      > a {
         display: inline-flex;
         padding: 35px 5px 33px;
         font-size: 1.6rem;
@@ -108,7 +108,7 @@ h1 {
   width: 100%;
   height: 855px;
 
-  span {
+  > span {
     font-family: "Georgia", "Tahoma", sans-serif;
     font-style: italic;
     font-size: 3.2rem;
@@ -251,7 +251,7 @@ main {
     margin-top: 51px;
     border: 1px solid @color-table;
 
-    span {
+    > span {
       padding: 0 15px;
       font-family: "Lato Regular", "Tahoma", sans-serif;
       font-size: 1.6rem;
@@ -264,7 +264,7 @@ main {
       }
     }
 
-    input {
+    > input {
       height: 65%;
       width: 100%;
       padding-left: 18px;
@@ -275,7 +275,7 @@ main {
       border-left: 1px solid @color-table;
     }
 
-    select {
+    > select {
       width: 82px;
       height: 65%;
       padding-left: 10px;
@@ -378,7 +378,7 @@ main {
     overflow: hidden;
     z-index: 50;
 
-    img {
+    > img {
       margin-top: -260px;
     }
   }
@@ -406,7 +406,7 @@ main {
       width: 30px;
       height: 30px;
 
-      img {
+      > img {
         width: 70%;
         height: 70%;
         margin: 15% 15% 15% 0;
@@ -442,7 +442,7 @@ main {
       border-top: 2px solid @color-table;
       border-bottom: 2px solid @color-table;
 
-      p {
+      > p {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -469,14 +469,14 @@ main {
       font-family: "Lato Heavy", "Tahoma", sans-serif;
       font-size: 2.6rem;
 
-      sup {
+      > sup {
         position: relative;
         bottom: 0.3em;
         font-family: "Lato Heavy", "Tahoma", sans-serif;
         font-size: 0.7em;
       }
 
-      sub {
+      > sub {
         position: relative;
         top: 0.15em;
         font-family: "Lato Regular", "Tahoma", sans-serif;
@@ -600,7 +600,7 @@ main {
       text-transform: capitalize;
       .user-select(none);
 
-      b {
+      > b {
         font-weight: 900;
       }
     }
@@ -671,7 +671,7 @@ main {
         width: 100%;
         margin-top: 12px;
 
-        a {
+        > a {
           &:last-child {
             transform: rotate(-90deg);
           }
@@ -692,49 +692,93 @@ main {
   }
 }
 
-.slider {
+.slides {
+  position: relative;
+  height: 190px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: black;
+
   .slide {
-    min-height: 190px;
-    padding-bottom: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
 
     > img {
       position: absolute;
-      bottom: 0;
-      z-index: -15;
+      bottom: -176px;
       left: 0;
-      width: 100%;
-      min-height: 200px;
+      z-index: -1;
     }
 
     .text {
-      margin: 45px auto 10px;
-      width: 60%;
       max-height: 60px;
+      margin: 45px 0 15px;
+      padding: 0 20%;
       font-family: "Lato Light", "Tahoma", sans-serif;
       font-size: 2rem;
-      text-overflow: ellipsis;
+      color: #fff;
       text-align: center;
-      color: white;
-      overflow: hidden;
       line-height: 30px;
+      overflow: hidden;
     }
 
     .name {
-      display: block;
-      width: 51.2%;
-      margin-top: 16px;
-      padding-right: 12px;
+      float: right;
+      margin-right: 49%;
+      padding-right: 10px;
       font-family: "Lato Bold", "Tahoma", sans-serif;
       font-size: 2rem;
-      color: #fff;
-      text-align: right;
-      border-right: 1px solid white;
+      line-height: 20px;
 
-      a {
+      > a {
         text-decoration: none;
         color: #fff;
       }
     }
+  }
+
+  .controls {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    bottom: 53px;
+    left: 51.1%;
+    z-index: 3;
+    height: 15px;
+    padding-left: 7px;
+    padding-top: 4px;
+    border-left: 1px solid #fff;
+
+    .btn {
+      display: block;
+      height: 8px;
+      width: 8px;
+      margin: 0 6px;
+      background: #2c2c2b;
+      border: 1px solid white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .active {
+      background: #fff;
+    }
+
+  }
+
+  .showing {
+    opacity: 1;
+    z-index: 2;
   }
 }
 
@@ -992,14 +1036,6 @@ footer {
 
 @media only screen and (min-width: 1280px) {
 
-  .slider {
-    .slide {
-      > img {
-        bottom: -178px;
-      }
-    }
-  }
-
   footer {
     .navigation {
       .logo {
@@ -1024,16 +1060,8 @@ footer {
     }
   }
 
-  .slider {
-    .slide {
-      > img {
-        bottom: -125px;
-      }
-    }
-  }
-
   footer {
-    .navigation{
+    .navigation {
       .logo {
         margin-top: 0;
       }
@@ -1267,20 +1295,6 @@ footer {
     }
   }
 
-  .slider {
-    .slide {
-      > img {
-        bottom: 0;
-      }
-
-      > .text {
-        width: 100%;
-        min-height: 60px;
-        padding: 0 15px;
-      }
-    }
-  }
-
   .services {
     flex-wrap: wrap;
     margin-top: 75px;
@@ -1415,7 +1429,8 @@ footer {
         font-size: 1.2rem;
       }
 
-      select {}
+      select {
+      }
       font-size: 1.2rem;
     }
 
