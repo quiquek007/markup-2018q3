@@ -48,6 +48,11 @@ h1 {
   width: 100%;
   padding-top: 2px;
   padding-left: 30%;
+  overflow: hidden;
+  transition: 0.8s all;
+}
+.navigation .menu.hide {
+  height: 0;
 }
 .navigation .menu > li {
   width: calc(100% / 6);
@@ -968,6 +973,7 @@ footer .information .contacts > p {
   .navigation .menu {
     flex-direction: row;
     flex-wrap: wrap;
+    height: 206px;
     padding: 0 0;
     border-bottom: 1px solid white;
     background: rgba(255, 255, 255, 0.2);
@@ -1106,6 +1112,9 @@ footer .information .contacts > p {
   }
 }
 @media only screen and (max-width: 480px) {
+  .navigation .menu {
+    height: 410px;
+  }
   .navigation .menu li {
     width: 100%;
   }

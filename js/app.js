@@ -1,3 +1,33 @@
+////////////////
+//    MENU
+////////////////
+let ulMenu = document.querySelector('header .navigation .menu');
+let pull = document.querySelector('#pull');
+let flag = true;
+
+pull.onclick = (e) => {
+  if (flag) {
+    ulMenu.classList.add('hide');
+    flag = !flag;
+  } else {
+    ulMenu.classList.remove('hide');
+    flag = !flag;
+  }
+};
+
+if (window.innerWidth < 768) pull.onclick();
+
+window.onresize = () => {
+  if (window.innerWidth > 768 && !flag) {
+    ulMenu.classList.remove('hide');
+  } else if (!flag) {
+    ulMenu.classList.add('hide');
+  }
+};
+
+////////////////
+//    SLIDER
+////////////////
 let slides = document.querySelectorAll('#slides .slide');
 let currentSlide = 0;
 let controls = document.createElement('div');
