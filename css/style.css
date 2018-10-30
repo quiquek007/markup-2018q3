@@ -1080,6 +1080,7 @@ footer .information .contacts > p {
     margin: 0 0;
   }
   footer .navigation .menu {
+    height: auto;
     padding: 0 0;
   }
   footer .navigation .menu li:nth-child(even) {
@@ -1097,15 +1098,15 @@ footer .information .contacts > p {
   footer .information .links {
     flex-direction: column;
     flex-wrap: nowrap;
-    width: 30%;
-    padding: 23px 0 0 40px;
+    width: 31%;
+    padding: 23px 0 0 5%;
   }
   footer .information .links a {
     white-space: nowrap;
   }
   footer .information .contacts {
     width: 42%;
-    padding: 23px 15px;
+    padding: 23px 0 23px 15px;
   }
   footer .information .contacts > a {
     font-size: 1rem;
@@ -1222,27 +1223,35 @@ footer .information .contacts > p {
     font-size: 1rem;
   }
   footer .information {
+    flex-direction: column;
     padding: 15px;
   }
+  footer .information .design-info,
+  footer .information .contacts {
+    width: 100%;
+    padding: 10px 0;
+    border-top: 1px solid #686868;
+  }
   footer .information .design-info {
-    display: none;
+    order: 1;
+    border-right: none;
   }
   footer .information .links {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    width: 40%;
-    padding: 0 0 0 15px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    order: 0;
+    width: 100%;
+    padding: 10px 0;
   }
   footer .information .links a {
     white-space: nowrap;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
   footer .information .contacts {
-    width: 60%;
-    padding: 0 15px 0 10px;
+    border-left: none;
   }
   footer .information .contacts > a {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

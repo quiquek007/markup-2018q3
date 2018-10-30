@@ -1321,6 +1321,7 @@ footer {
       }
 
       .menu {
+        height: auto;
         padding: 0 0;
 
         li {
@@ -1347,8 +1348,8 @@ footer {
       .links {
         flex-direction: column;
         flex-wrap: nowrap;
-        width: 30%;
-        padding: 23px 0 0 40px;
+        width: 31%;
+        padding: 23px 0 0 5%;
 
         a {
           white-space: nowrap;
@@ -1357,7 +1358,7 @@ footer {
 
       .contacts {
         width: 42%;
-        padding: 23px 15px;
+        padding: 23px 0 23px 15px;
 
         > a {
           font-size: 1rem;
@@ -1521,30 +1522,39 @@ footer {
     }
 
     .information {
+      flex-direction: column;
       padding: 15px;
 
+      .design-info,
+      .contacts {
+        width: 100%;
+        padding: 10px 0;
+        border-top: 1px solid #686868;
+      }
+
       .design-info {
-        display: none;
+        order: 1;
+        border-right: none;
       }
 
       .links {
-        flex-direction: column;
-        flex-wrap: nowrap;
-        width: 40%;
-        padding: 0 0 0 15px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        order: 0;
+        width: 100%;
+        padding: 10px 0;
 
         a {
           white-space: nowrap;
-          font-size: 1.3rem;
+          font-size: 1.6rem;
         }
       }
 
       .contacts {
-        width: 60%;
-        padding: 0 15px 0 10px;
+        border-left: none;
 
         > a {
-          font-size: 0.9rem;
+          font-size: 1.5rem;
         }
       }
     }
